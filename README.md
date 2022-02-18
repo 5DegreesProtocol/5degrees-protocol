@@ -1,7 +1,7 @@
 #  5degrees-protocol
 **The smart contract of 5Degrees Protocol.** 
 
-[![Version](https://img.shields.io/badge/Solidity->=0.8.0-lightgrey)](https://github.com/ethereum/solidity)[![EIP](https://img.shields.io/badge/protocol-EIP1155-yellowgreen)](https://eips.ethereum.org/EIPS/eip-155)
+[![Version](https://img.shields.io/badge/Solidity->=0.8.0-lightgrey)](https://github.com/ethereum/solidity) [![EIP](https://img.shields.io/badge/protocol-EIP1155-yellowgreen)](https://eips.ethereum.org/EIPS/eip-155)
 
 5Degrees is a Web3 social network protocol deployed on multi-chain. It aims to enable content creator to obtain his connections among communities and friends, and form a complete combinable, users-owned decentralized social network.
 
