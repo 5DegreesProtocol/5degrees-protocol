@@ -42,51 +42,63 @@ The ID of Follow NFT is serialized to the address of the creator (the one being 
 
 *Single & Batch Operator Diffent*
 
-> mint single: msg.sender
+> mint or burn single: msg.sender
 >
-> mint batch: tx.origin
+> mint or burn  batch: tx.origin
 
 ```
 /**
 * @notice The operator address is msg.sender.
 *	
-* @param account which address to follow.
+* @param account which address to follow or unfollow.
 */
 function mint(address account) external;
+
+function burn(address account) external;
 ```
 
 ```
 /**
 * @notice The operator address is tx.origin.
 *	
-* @param account which address to follow.
+* @param account which address to follow or unfollow.
 */
 function mintByOrigin(address account) external;
+
+function burnOrigin(address account) external;
 ```
 
-also can mint for batch...
+also can mint or burn for batch...
 
 ```
 /**
 * @notice The operator address is msg.sender.
 *	
-* @param account which address to follow.
+* @param account which address to follow or unfollow.
 */
 function mintBatch(address[] memory accounts) external;
+
+function burnBatch(address[] memory accounts) external;
 ```
 
 ```
 /**
 * @notice The operator address is tx.origin.
 *	
-* @param account which address to follow.
+* @param account which address to follow or unfollow.
 */
 function mintBatchByOrigin(address[] memory accounts) external;
+
+function burnBatchByOrigin(address[] memory accounts) external;
 ```
 
-
+For the query, you can call `balanceOf(address owner, uint256 tokenId)` 
 
 ## Overview
+
+### Protocol Documentation
+
+See docs  ->  https://docs.5degrees.io/5degrees-protocol-of-web3/
 
 ### Installation
 
@@ -96,16 +108,48 @@ $ npm install @openzeppelin/contracts
 
 ### Contract Deployed
 
-| Chain Network  | ChainID | Contract Address                           |
-| -------------- | ------- | ------------------------------------------ |
-| Ethereum(ETH)  | 1       | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
-| BNB Chain(BSC) | 56      | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
-| Polygon(MATIC) | 137     | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| Chain Network   | ChainID | Contract Address                           |
+| --------------- | ------- | ------------------------------------------ |
+| Ethereum (ETH)  | 1       | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| BNB Chain (BSC) | 56      | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| Polygon (MATIC) | 137     | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+
+### Test Network deployed
+
+| Chain Network             | ChainID | Contract Address                           |
+| ------------------------- | ------- | ------------------------------------------ |
+| Rinkeby (ETH)             | 4       | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| BNB Chain Test (BSC Test) | 97      | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| Polygon Mumbai (MATIC)    | 80001   | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 
 ### Usage
+
+Open and free, you can use the protocol in the contracts by importing them:
+
+```
+pragma solidity >=0.8.0;
+
+import "./IFiveDegrees.sol";
+
+contract MyDapp {
+
+  address public five_degrees_protocol = "0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09";
+		
+  function following(address account) public {
+    //TODO your dapp code of some require
+				
+    uint256 amount = IFiveDegrees(five_degrees_protocol).balanceOf(msg.sender, uint256(uint160(account)));
+    if (amount < 1) {
+	IFiveDegrees(five_degrees_protocol).mintByOrigin(account);
+    }
+
+    //TODO your dapp core code
+  }
+}
+```
 
 
 
 ## License
 
-5Degrees Protocol Contracts is released under the [MIT License](https://github.com/5DegreesProtocol/5degrees-protocol/blob/main/LICENSE).
+5Degrees Protocol Contracts is released under the [License](https://github.com/5DegreesProtocol/5degrees-protocol/blob/main/LICENSE).
