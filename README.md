@@ -27,12 +27,12 @@ ProfileNFT Struct:
  * @param properties Extension data of this profile NFT,eg:twitter,mirror...
  */
 struct TokenURIInfo {
-		string name;
-		string image;
-		uint256 maxSupply;
-		uint256 tokenSupply;
-		uint256 totalBalance;
-		string properties;
+    string name;
+    string image;
+    uint256 maxSupply;
+    uint256 tokenSupply;
+    uint256 totalBalance;
+    string properties;
 }
 ```
 
