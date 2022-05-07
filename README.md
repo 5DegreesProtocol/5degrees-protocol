@@ -113,6 +113,7 @@ $ npm install @openzeppelin/contracts
 | Ethereum (ETH)  | 1       | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 | BNB Chain (BSC) | 56      | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 | Polygon (MATIC) | 137     | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| OKXChain (OKC) | 66     | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 
 ### Test Network deployed
 
@@ -121,6 +122,7 @@ $ npm install @openzeppelin/contracts
 | Rinkeby (ETH)             | 4       | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 | BNB Chain Test (BSC Test) | 97      | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 | Polygon Mumbai (MATIC)    | 80001   | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
+| OKXChain (OKC)    | 65   | 0x8D5AC44F019Fa9D233d9F0c0A42d4d113eDf0C09 |
 
 ### Usage
 
